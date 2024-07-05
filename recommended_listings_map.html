@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_786c6d7499f6f3a9b2bf8afe96980e31 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_786c6d7499f6f3a9b2bf8afe96980e31" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_786c6d7499f6f3a9b2bf8afe96980e31 = L.map(
+                "map_786c6d7499f6f3a9b2bf8afe96980e31",
+                {
+                    center: [37.7749, -122.4194],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_398e352e41ed9f9695ebabac6dc355a5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_398e352e41ed9f9695ebabac6dc355a5.addTo(map_786c6d7499f6f3a9b2bf8afe96980e31);
+        
+    
+            var marker_cluster_098fe511146d926e2c441e63f890d4a8 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_efbdb7cb1c15c1ae74089beda32e8678 = L.marker(
+                [37.783173, -122.407689],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_7e1f968f40a68e6b7c400b8195ea9cbc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_efbdb7cb1c15c1ae74089beda32e8678.setIcon(icon_7e1f968f40a68e6b7c400b8195ea9cbc);
+        
+    
+        var popup_391d8790f468d7b3d04c1f083699195c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a4183d31aa0b83d1cc8fe318609b669e = $(`<div id="html_a4183d31aa0b83d1cc8fe318609b669e" style="width: 100.0%; height: 100.0%;">Rank: 1<br>Address: 2 Mint Plz, Unit 308L, San Francisco, CA 94103<br>Price: $2900<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.99</div>`)[0];
+                popup_391d8790f468d7b3d04c1f083699195c.setContent(html_a4183d31aa0b83d1cc8fe318609b669e);
+            
+        
+
+        marker_efbdb7cb1c15c1ae74089beda32e8678.bindPopup(popup_391d8790f468d7b3d04c1f083699195c)
+        ;
+
+        
+    
+    
+            var marker_1580a7fcd1060e1c4f0b5bdfe48598b8 = L.marker(
+                [37.787322, -122.392224],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_33e94339760b3c2bb2d27f005c6fca80 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1580a7fcd1060e1c4f0b5bdfe48598b8.setIcon(icon_33e94339760b3c2bb2d27f005c6fca80);
+        
+    
+        var popup_69e1c1f391d04703c07d4c5d9e743318 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e03b324f315f68c2d785da41de60e19e = $(`<div id="html_e03b324f315f68c2d785da41de60e19e" style="width: 100.0%; height: 100.0%;">Rank: 2<br>Address: 399 Fremont St, San Francisco, CA 94105<br>Price: $2924<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.98</div>`)[0];
+                popup_69e1c1f391d04703c07d4c5d9e743318.setContent(html_e03b324f315f68c2d785da41de60e19e);
+            
+        
+
+        marker_1580a7fcd1060e1c4f0b5bdfe48598b8.bindPopup(popup_69e1c1f391d04703c07d4c5d9e743318)
+        ;
+
+        
+    
+    
+            var marker_6746332eea62240b790b0903229d149e = L.marker(
+                [37.7967, -122.410484],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_7ed5cdadc943a67280ade8694f3ac092 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6746332eea62240b790b0903229d149e.setIcon(icon_7ed5cdadc943a67280ade8694f3ac092);
+        
+    
+        var popup_f291147a71613de958e6d862c8522d65 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_55a90532d88cf0dd5a149058af751e9a = $(`<div id="html_55a90532d88cf0dd5a149058af751e9a" style="width: 100.0%; height: 100.0%;">Rank: 3<br>Address: 916 Pacific Ave, Apt 9, San Francisco, CA 94133<br>Price: $2925<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.80</div>`)[0];
+                popup_f291147a71613de958e6d862c8522d65.setContent(html_55a90532d88cf0dd5a149058af751e9a);
+            
+        
+
+        marker_6746332eea62240b790b0903229d149e.bindPopup(popup_f291147a71613de958e6d862c8522d65)
+        ;
+
+        
+    
+    
+            var marker_d7d5ad0094364b8877a830eb204b1a35 = L.marker(
+                [37.793301, -122.412537],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_473814db022b299073f3ea0c91817424 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d7d5ad0094364b8877a830eb204b1a35.setIcon(icon_473814db022b299073f3ea0c91817424);
+        
+    
+        var popup_7420133a091a679eb20d3b2069ca4734 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bbd9bf64bdf093f33d09eaf8a3272ab3 = $(`<div id="html_bbd9bf64bdf093f33d09eaf8a3272ab3" style="width: 100.0%; height: 100.0%;">Rank: 4<br>Address: 1181 Clay St, Apt 5, San Francisco, CA 94108<br>Price: $2950<br>Bedrooms: 2.0<br>Bathrooms: 1.0<br>Score: 2.68</div>`)[0];
+                popup_7420133a091a679eb20d3b2069ca4734.setContent(html_bbd9bf64bdf093f33d09eaf8a3272ab3);
+            
+        
+
+        marker_d7d5ad0094364b8877a830eb204b1a35.bindPopup(popup_7420133a091a679eb20d3b2069ca4734)
+        ;
+
+        
+    
+    
+            var marker_38402ef7eb68e54b6eab289dd26341cd = L.marker(
+                [37.788322, -122.389404],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_1bf0dec4567c7066640b6a18d119be3b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_38402ef7eb68e54b6eab289dd26341cd.setIcon(icon_1bf0dec4567c7066640b6a18d119be3b);
+        
+    
+        var popup_c0c04517b4f793ceaab91804cb3424b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4fbe21db54ee1c0f92e71206206a84a4 = $(`<div id="html_4fbe21db54ee1c0f92e71206206a84a4" style="width: 100.0%; height: 100.0%;">Rank: 5<br>Address: 400 Spear St, Apt 208, San Francisco, CA 94105<br>Price: $3000<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.58</div>`)[0];
+                popup_c0c04517b4f793ceaab91804cb3424b8.setContent(html_4fbe21db54ee1c0f92e71206206a84a4);
+            
+        
+
+        marker_38402ef7eb68e54b6eab289dd26341cd.bindPopup(popup_c0c04517b4f793ceaab91804cb3424b8)
+        ;
+
+        
+    
+    
+            var marker_2b18d8df0daf0ca692ec9fbd0d63c39c = L.marker(
+                [37.793887, -122.426683],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_aa10ccc72e7b1e6cda4e771240565ec8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2b18d8df0daf0ca692ec9fbd0d63c39c.setIcon(icon_aa10ccc72e7b1e6cda4e771240565ec8);
+        
+    
+        var popup_ee2bd9a931b324e74e41bef79d6c06da = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a1eab97ef3b5a0eee3d818cedf9653f9 = $(`<div id="html_a1eab97ef3b5a0eee3d818cedf9653f9" style="width: 100.0%; height: 100.0%;">Rank: 6<br>Address: 2215 Gough St, Apt 3, San Francisco, CA 94109<br>Price: $2950<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.57</div>`)[0];
+                popup_ee2bd9a931b324e74e41bef79d6c06da.setContent(html_a1eab97ef3b5a0eee3d818cedf9653f9);
+            
+        
+
+        marker_2b18d8df0daf0ca692ec9fbd0d63c39c.bindPopup(popup_ee2bd9a931b324e74e41bef79d6c06da)
+        ;
+
+        
+    
+    
+            var marker_6c592e402a2d3c5c5328b212076a94c9 = L.marker(
+                [37.75591, -122.401408],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_dbab9a121aceea97256612433a4f9f84 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6c592e402a2d3c5c5328b212076a94c9.setIcon(icon_dbab9a121aceea97256612433a4f9f84);
+        
+    
+        var popup_9ca6f14f8d62c22fa41b1518db4ecc2a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_69da826bf6601e946ce879be9529ce57 = $(`<div id="html_69da826bf6601e946ce879be9529ce57" style="width: 100.0%; height: 100.0%;">Rank: 7<br>Address: 1095 Rhode Island St, Unit A, San Francisco, CA 94107<br>Price: $2950<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.53</div>`)[0];
+                popup_9ca6f14f8d62c22fa41b1518db4ecc2a.setContent(html_69da826bf6601e946ce879be9529ce57);
+            
+        
+
+        marker_6c592e402a2d3c5c5328b212076a94c9.bindPopup(popup_9ca6f14f8d62c22fa41b1518db4ecc2a)
+        ;
+
+        
+    
+    
+            var marker_98e775cb73f04fe8937bafb36445b316 = L.marker(
+                [37.755905, -122.401474],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_8bac179b3d4cf5053b40cb1c358b0eed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_98e775cb73f04fe8937bafb36445b316.setIcon(icon_8bac179b3d4cf5053b40cb1c358b0eed);
+        
+    
+        var popup_4e417de2f3d34fa3944d6334e36004b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cbc76eb73658d1af0d477667e07ed5e7 = $(`<div id="html_cbc76eb73658d1af0d477667e07ed5e7" style="width: 100.0%; height: 100.0%;">Rank: 8<br>Address: 1095A Rhode Island St, San Francisco, CA 94107<br>Price: $2950<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.53</div>`)[0];
+                popup_4e417de2f3d34fa3944d6334e36004b8.setContent(html_cbc76eb73658d1af0d477667e07ed5e7);
+            
+        
+
+        marker_98e775cb73f04fe8937bafb36445b316.bindPopup(popup_4e417de2f3d34fa3944d6334e36004b8)
+        ;
+
+        
+    
+    
+            var marker_f49e120757f70e6948945c5a1e22a9bc = L.marker(
+                [37.791157, -122.406792],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_3a1ab8b1ea0fc444995707dbaf3169a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f49e120757f70e6948945c5a1e22a9bc.setIcon(icon_3a1ab8b1ea0fc444995707dbaf3169a6);
+        
+    
+        var popup_e17270de9358ea112610b997259a5b43 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b6bc39f0b359415626a461fb0461723 = $(`<div id="html_3b6bc39f0b359415626a461fb0461723" style="width: 100.0%; height: 100.0%;">Rank: 9<br>Address: 665 Pine St, Apt 403, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.51</div>`)[0];
+                popup_e17270de9358ea112610b997259a5b43.setContent(html_3b6bc39f0b359415626a461fb0461723);
+            
+        
+
+        marker_f49e120757f70e6948945c5a1e22a9bc.bindPopup(popup_e17270de9358ea112610b997259a5b43)
+        ;
+
+        
+    
+    
+            var marker_2ae7855cfb40b0806c68e826a89b71fa = L.marker(
+                [37.791096, -122.407883],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_dad23b9977f342965af9bafea8740266 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2ae7855cfb40b0806c68e826a89b71fa.setIcon(icon_dad23b9977f342965af9bafea8740266);
+        
+    
+        var popup_b1ed00a6658ff45b20e757af37e11447 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3eb59cfb01f5f489190386a433abc4cb = $(`<div id="html_3eb59cfb01f5f489190386a433abc4cb" style="width: 100.0%; height: 100.0%;">Rank: 10<br>Address: 737 Pine St, Apt 24, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.50</div>`)[0];
+                popup_b1ed00a6658ff45b20e757af37e11447.setContent(html_3eb59cfb01f5f489190386a433abc4cb);
+            
+        
+
+        marker_2ae7855cfb40b0806c68e826a89b71fa.bindPopup(popup_b1ed00a6658ff45b20e757af37e11447)
+        ;
+
+        
+    
+    
+            var marker_e43f63367c75ca39d330b2a113fd1b41 = L.marker(
+                [37.7918309, -122.4076226],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_6bf915d110c78dc62d5eca71dd20362b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e43f63367c75ca39d330b2a113fd1b41.setIcon(icon_6bf915d110c78dc62d5eca71dd20362b);
+        
+    
+        var popup_955ba7331e375d0d96856353e0a0ec0a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3956abdc56edb0f8d7316766bd736250 = $(`<div id="html_3956abdc56edb0f8d7316766bd736250" style="width: 100.0%; height: 100.0%;">Rank: 11<br>Address: 647 Stockton St, Unit 302, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.50</div>`)[0];
+                popup_955ba7331e375d0d96856353e0a0ec0a.setContent(html_3956abdc56edb0f8d7316766bd736250);
+            
+        
+
+        marker_e43f63367c75ca39d330b2a113fd1b41.bindPopup(popup_955ba7331e375d0d96856353e0a0ec0a)
+        ;
+
+        
+    
+    
+            var marker_b7fd4e0ee3701fe45b06a8232e0c0535 = L.marker(
+                [37.7917732, -122.4080994],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_d4ab0977fe075a5a8c614a95dd81edb9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b7fd4e0ee3701fe45b06a8232e0c0535.setIcon(icon_d4ab0977fe075a5a8c614a95dd81edb9);
+        
+    
+        var popup_3b635477807260803d4fc29a3585a9fe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f52a84c5467021c0e1735353cb48d8d7 = $(`<div id="html_f52a84c5467021c0e1735353cb48d8d7" style="width: 100.0%; height: 100.0%;">Rank: 12<br>Address: 52 Joice St, Unit 10, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.50</div>`)[0];
+                popup_3b635477807260803d4fc29a3585a9fe.setContent(html_f52a84c5467021c0e1735353cb48d8d7);
+            
+        
+
+        marker_b7fd4e0ee3701fe45b06a8232e0c0535.bindPopup(popup_3b635477807260803d4fc29a3585a9fe)
+        ;
+
+        
+    
+    
+            var marker_05dae5d59f170ef0a1cc2a0722c9caff = L.marker(
+                [37.7917732, -122.4080994],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_91b32ce4ac85930a30aa2fe4f0f3130f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_05dae5d59f170ef0a1cc2a0722c9caff.setIcon(icon_91b32ce4ac85930a30aa2fe4f0f3130f);
+        
+    
+        var popup_fffe67116bef884f37cb1a157dd7731f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f4e1e9691d45f4d1ee46cf272b82c9b7 = $(`<div id="html_f4e1e9691d45f4d1ee46cf272b82c9b7" style="width: 100.0%; height: 100.0%;">Rank: 13<br>Address: 52 Joice St, Unit 7, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.50</div>`)[0];
+                popup_fffe67116bef884f37cb1a157dd7731f.setContent(html_f4e1e9691d45f4d1ee46cf272b82c9b7);
+            
+        
+
+        marker_05dae5d59f170ef0a1cc2a0722c9caff.bindPopup(popup_fffe67116bef884f37cb1a157dd7731f)
+        ;
+
+        
+    
+    
+            var marker_7f08d8fe44b26de37ae5a057b910693a = L.marker(
+                [37.791755, -122.408136],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_0b9d43628c735d283214e20797d2e2ee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7f08d8fe44b26de37ae5a057b910693a.setIcon(icon_0b9d43628c735d283214e20797d2e2ee);
+        
+    
+        var popup_4ae49c761772e63c5a0299d6d140dd20 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_afd2c0770d42d23dc68ec1a6930efc63 = $(`<div id="html_afd2c0770d42d23dc68ec1a6930efc63" style="width: 100.0%; height: 100.0%;">Rank: 14<br>Address: 50 Joice St, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.50</div>`)[0];
+                popup_4ae49c761772e63c5a0299d6d140dd20.setContent(html_afd2c0770d42d23dc68ec1a6930efc63);
+            
+        
+
+        marker_7f08d8fe44b26de37ae5a057b910693a.bindPopup(popup_4ae49c761772e63c5a0299d6d140dd20)
+        ;
+
+        
+    
+    
+            var marker_8a375929feb6352289acf4c265319f21 = L.marker(
+                [37.757373, -122.422599],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_d22f815d0b96d34c54757d3d06f0716e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8a375929feb6352289acf4c265319f21.setIcon(icon_d22f815d0b96d34c54757d3d06f0716e);
+        
+    
+        var popup_90d423e317477c2c78b8f7722926bd55 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_54d685e232d2246bcd3a6e9f1a148f04 = $(`<div id="html_54d685e232d2246bcd3a6e9f1a148f04" style="width: 100.0%; height: 100.0%;">Rank: 15<br>Address: 65 Liberty St, San Francisco, CA 94110<br>Price: $2950<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.47</div>`)[0];
+                popup_90d423e317477c2c78b8f7722926bd55.setContent(html_54d685e232d2246bcd3a6e9f1a148f04);
+            
+        
+
+        marker_8a375929feb6352289acf4c265319f21.bindPopup(popup_90d423e317477c2c78b8f7722926bd55)
+        ;
+
+        
+    
+    
+            var marker_8dbfca38e64fa8885a8f88e0a0a6928d = L.marker(
+                [37.79372, -122.413022],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_b14613cc51c9f96d2f73bc74c54dbe69 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8dbfca38e64fa8885a8f88e0a0a6928d.setIcon(icon_b14613cc51c9f96d2f73bc74c54dbe69);
+        
+    
+        var popup_589989e987065c157f2fe9a3bed9ae28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7f9a2e25dcfea56167dad1d6d0c46e99 = $(`<div id="html_7f9a2e25dcfea56167dad1d6d0c46e99" style="width: 100.0%; height: 100.0%;">Rank: 16<br>Address: 1219 Taylor St, Apt 10, San Francisco, CA 94108<br>Price: $2995<br>Bedrooms: 2.0<br>Bathrooms: 1.0<br>Score: 2.45</div>`)[0];
+                popup_589989e987065c157f2fe9a3bed9ae28.setContent(html_7f9a2e25dcfea56167dad1d6d0c46e99);
+            
+        
+
+        marker_8dbfca38e64fa8885a8f88e0a0a6928d.bindPopup(popup_589989e987065c157f2fe9a3bed9ae28)
+        ;
+
+        
+    
+    
+            var marker_9ddc282fc441bc5da0260594013765b3 = L.marker(
+                [37.798458, -122.423523],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_e9cbf33c6420d35de2a6e9db75a216ee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9ddc282fc441bc5da0260594013765b3.setIcon(icon_e9cbf33c6420d35de2a6e9db75a216ee);
+        
+    
+        var popup_bde57872768cc3a30faba6cba0ae394b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba2bb9b2c372cb140c93f1ef1dbaa902 = $(`<div id="html_ba2bb9b2c372cb140c93f1ef1dbaa902" style="width: 100.0%; height: 100.0%;">Rank: 17<br>Address: 1499 Union St, Apt 7, San Francisco, CA 94109<br>Price: $2975<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.45</div>`)[0];
+                popup_bde57872768cc3a30faba6cba0ae394b.setContent(html_ba2bb9b2c372cb140c93f1ef1dbaa902);
+            
+        
+
+        marker_9ddc282fc441bc5da0260594013765b3.bindPopup(popup_bde57872768cc3a30faba6cba0ae394b)
+        ;
+
+        
+    
+    
+            var marker_09de2a033c3520acecefa7a31ae6ddd0 = L.marker(
+                [37.789864, -122.415215],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_a9a6d68e26ea58d99e7b22422ec89a48 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_09de2a033c3520acecefa7a31ae6ddd0.setIcon(icon_a9a6d68e26ea58d99e7b22422ec89a48);
+        
+    
+        var popup_dfbfd1b69b54410033d32c0c28c94df6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_edb3a08216c6fb2fddfd50d7b0ec0808 = $(`<div id="html_edb3a08216c6fb2fddfd50d7b0ec0808" style="width: 100.0%; height: 100.0%;">Rank: 18<br>Address: 936 Leavenworth St, San Francisco, CA 94109<br>Price: $2995<br>Bedrooms: 2.0<br>Bathrooms: 2.0<br>Score: 2.45</div>`)[0];
+                popup_dfbfd1b69b54410033d32c0c28c94df6.setContent(html_edb3a08216c6fb2fddfd50d7b0ec0808);
+            
+        
+
+        marker_09de2a033c3520acecefa7a31ae6ddd0.bindPopup(popup_dfbfd1b69b54410033d32c0c28c94df6)
+        ;
+
+        
+    
+    
+            var marker_dc24f95a4f73e564a3fc6ce0831c3b97 = L.marker(
+                [37.792439, -122.414604],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_626c81e941aa3456206dfb25996bb168 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_dc24f95a4f73e564a3fc6ce0831c3b97.setIcon(icon_626c81e941aa3456206dfb25996bb168);
+        
+    
+        var popup_cbcff2311770d409f8aecc93f9d54da6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82ff434298db423cde07b66231758ca3 = $(`<div id="html_82ff434298db423cde07b66231758ca3" style="width: 100.0%; height: 100.0%;">Rank: 19<br>Address: 1300 Sacramento St, Apt 305, San Francisco, CA 94109<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.44</div>`)[0];
+                popup_cbcff2311770d409f8aecc93f9d54da6.setContent(html_82ff434298db423cde07b66231758ca3);
+            
+        
+
+        marker_dc24f95a4f73e564a3fc6ce0831c3b97.bindPopup(popup_cbcff2311770d409f8aecc93f9d54da6)
+        ;
+
+        
+    
+    
+            var marker_e0b24e06e16ec67e73dc20dcea6fce95 = L.marker(
+                [37.789486, -122.415918],
+                {}
+            ).addTo(marker_cluster_098fe511146d926e2c441e63f890d4a8);
+        
+    
+            var icon_b599a7692c5443a53ad02f650a666ff0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e0b24e06e16ec67e73dc20dcea6fce95.setIcon(icon_b599a7692c5443a53ad02f650a666ff0);
+        
+    
+        var popup_b5b23f0ff30e776b1efb95f58becffd6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_06ac5bf4dc69864083374512e8a2d358 = $(`<div id="html_06ac5bf4dc69864083374512e8a2d358" style="width: 100.0%; height: 100.0%;">Rank: 20<br>Address: 1126 Bush St, San Francisco, CA 94109<br>Price: $2995<br>Bedrooms: 1.0<br>Bathrooms: 1.0<br>Score: 2.44</div>`)[0];
+                popup_b5b23f0ff30e776b1efb95f58becffd6.setContent(html_06ac5bf4dc69864083374512e8a2d358);
+            
+        
+
+        marker_e0b24e06e16ec67e73dc20dcea6fce95.bindPopup(popup_b5b23f0ff30e776b1efb95f58becffd6)
+        ;
+
+        
+    
+    
+            marker_cluster_098fe511146d926e2c441e63f890d4a8.addTo(map_786c6d7499f6f3a9b2bf8afe96980e31);
+        
+</script>
+</html>
