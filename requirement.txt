@@ -1,4 +1,3 @@
-openai
 pandas
 numpy
 matplotlib
@@ -9,3 +8,5 @@ python-dotenv
 requests
 nltk
 folium
+openai
+streamlit

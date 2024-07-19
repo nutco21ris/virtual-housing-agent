@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3586a5d1b3a7a38af5971b11f7bf12cb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3586a5d1b3a7a38af5971b11f7bf12cb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3586a5d1b3a7a38af5971b11f7bf12cb = L.map(
+                "map_3586a5d1b3a7a38af5971b11f7bf12cb",
+                {
+                    center: [37.7749, -122.4194],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e9915d3191604a4ae06ce781f23e16b3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_e9915d3191604a4ae06ce781f23e16b3.addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var marker_c0ef9b7a3b75d49d7f7d19c682175818 = L.marker(
+                [37.792379, -122.408266],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_5ea1fa1bdbfe0f05ae4183d47fb7f9b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c0ef9b7a3b75d49d7f7d19c682175818.setIcon(icon_5ea1fa1bdbfe0f05ae4183d47fb7f9b5);
+        
+    
+        var popup_d94051bc28ce6684dcde777eae2e85ef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_74d28aa9a5a52f74fd374f73918db5e1 = $(`<div id="html_74d28aa9a5a52f74fd374f73918db5e1" style="width: 100.0%; height: 100.0%;">Price: $0.0475000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_d94051bc28ce6684dcde777eae2e85ef.setContent(html_74d28aa9a5a52f74fd374f73918db5e1);
+            
+        
+
+        marker_c0ef9b7a3b75d49d7f7d19c682175818.bindPopup(popup_d94051bc28ce6684dcde777eae2e85ef)
+        ;
+
+        
+    
+    
+            var marker_3b2033305cf66aef454ca7bc10467e20 = L.marker(
+                [37.790747, -122.40859],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_369284a64631bd0a6ff49359a783d785 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3b2033305cf66aef454ca7bc10467e20.setIcon(icon_369284a64631bd0a6ff49359a783d785);
+        
+    
+        var popup_672bfc656f9c003c0506391ab5c3f521 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6113fda5f3dbe0e0cc3e1bbe44d032d = $(`<div id="html_e6113fda5f3dbe0e0cc3e1bbe44d032d" style="width: 100.0%; height: 100.0%;">Price: $0.09749999999999992<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_672bfc656f9c003c0506391ab5c3f521.setContent(html_e6113fda5f3dbe0e0cc3e1bbe44d032d);
+            
+        
+
+        marker_3b2033305cf66aef454ca7bc10467e20.bindPopup(popup_672bfc656f9c003c0506391ab5c3f521)
+        ;
+
+        
+    
+    
+            var marker_c00c13348fe5ec786896953a86e1cd1d = L.marker(
+                [37.7938, -122.411987],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_b0516482fa651625c9296b6983b9f395 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c00c13348fe5ec786896953a86e1cd1d.setIcon(icon_b0516482fa651625c9296b6983b9f395);
+        
+    
+        var popup_82ea3b91682905e245aa6aab9ba280e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d5bedf2b811019ed0d659f6e6f9ae536 = $(`<div id="html_d5bedf2b811019ed0d659f6e6f9ae536" style="width: 100.0%; height: 100.0%;">Price: $0.0475000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_82ea3b91682905e245aa6aab9ba280e1.setContent(html_d5bedf2b811019ed0d659f6e6f9ae536);
+            
+        
+
+        marker_c00c13348fe5ec786896953a86e1cd1d.bindPopup(popup_82ea3b91682905e245aa6aab9ba280e1)
+        ;
+
+        
+    
+    
+            var marker_cf8b425ae6a48e33e741191c07fc917c = L.marker(
+                [37.785301, -122.412598],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_1a6f365eb086650c25cf237a16ce0ad6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cf8b425ae6a48e33e741191c07fc917c.setIcon(icon_1a6f365eb086650c25cf237a16ce0ad6);
+        
+    
+        var popup_26ff36b8b033b8936c83757052c49a78 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_911bf7b9ff68a08d0e70dd273bc50eae = $(`<div id="html_911bf7b9ff68a08d0e70dd273bc50eae" style="width: 100.0%; height: 100.0%;">Price: $0.0475000000000001<br>Bedrooms: 2.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_26ff36b8b033b8936c83757052c49a78.setContent(html_911bf7b9ff68a08d0e70dd273bc50eae);
+            
+        
+
+        marker_cf8b425ae6a48e33e741191c07fc917c.bindPopup(popup_26ff36b8b033b8936c83757052c49a78)
+        ;
+
+        
+    
+    
+            var marker_ea5651ae0f6faa748c3b2b85b4df334b = L.marker(
+                [37.780979, -122.410141],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_2cf8fb88bdaf38cd2b05b097956dee3a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ea5651ae0f6faa748c3b2b85b4df334b.setIcon(icon_2cf8fb88bdaf38cd2b05b097956dee3a);
+        
+    
+        var popup_dad34bee64da6735770b5e8f57db50e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b1f279b6fe498e267f6bb59ea6580bd6 = $(`<div id="html_b1f279b6fe498e267f6bb59ea6580bd6" style="width: 100.0%; height: 100.0%;">Price: $0.0475000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_dad34bee64da6735770b5e8f57db50e7.setContent(html_b1f279b6fe498e267f6bb59ea6580bd6);
+            
+        
+
+        marker_ea5651ae0f6faa748c3b2b85b4df334b.bindPopup(popup_dad34bee64da6735770b5e8f57db50e7)
+        ;
+
+        
+    
+    
+            var marker_0ebc78f5a80c5986d05a4af7befbdd4f = L.marker(
+                [37.789105, -122.414816],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_ba6363ba5dad7946d8da7225726823d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0ebc78f5a80c5986d05a4af7befbdd4f.setIcon(icon_ba6363ba5dad7946d8da7225726823d8);
+        
+    
+        var popup_99a234301d2c460a1313b17a0d4d43f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_65642c1ef2c8798e023f99f113ef00ed = $(`<div id="html_65642c1ef2c8798e023f99f113ef00ed" style="width: 100.0%; height: 100.0%;">Price: $0.04499999999999993<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_99a234301d2c460a1313b17a0d4d43f2.setContent(html_65642c1ef2c8798e023f99f113ef00ed);
+            
+        
+
+        marker_0ebc78f5a80c5986d05a4af7befbdd4f.bindPopup(popup_99a234301d2c460a1313b17a0d4d43f2)
+        ;
+
+        
+    
+    
+            var marker_84518f3d84c103fcd78d70292472cb73 = L.marker(
+                [37.79083, -122.409154],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_71a972f5249dffe242fd8d86452f7ee6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_84518f3d84c103fcd78d70292472cb73.setIcon(icon_71a972f5249dffe242fd8d86452f7ee6);
+        
+    
+        var popup_cd3c3be933537d9b5afe044879b7c008 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e7b66701cb86c59ee3b6251a4e8ae36 = $(`<div id="html_9e7b66701cb86c59ee3b6251a4e8ae36" style="width: 100.0%; height: 100.0%;">Price: $0.14749999999999996<br>Bedrooms: 2.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_cd3c3be933537d9b5afe044879b7c008.setContent(html_9e7b66701cb86c59ee3b6251a4e8ae36);
+            
+        
+
+        marker_84518f3d84c103fcd78d70292472cb73.bindPopup(popup_cd3c3be933537d9b5afe044879b7c008)
+        ;
+
+        
+    
+    
+            var marker_94a2c9baf11cbe95e1e23e19ecfb613c = L.marker(
+                [37.800655, -122.4058],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_ee21db4055d310971ac1130bed688a61 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_94a2c9baf11cbe95e1e23e19ecfb613c.setIcon(icon_ee21db4055d310971ac1130bed688a61);
+        
+    
+        var popup_0792dd0c4d12406a9f7383913b593688 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b7ae22436b07c1e862e29a449e631094 = $(`<div id="html_b7ae22436b07c1e862e29a449e631094" style="width: 100.0%; height: 100.0%;">Price: $0.125<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_0792dd0c4d12406a9f7383913b593688.setContent(html_b7ae22436b07c1e862e29a449e631094);
+            
+        
+
+        marker_94a2c9baf11cbe95e1e23e19ecfb613c.bindPopup(popup_0792dd0c4d12406a9f7383913b593688)
+        ;
+
+        
+    
+    
+            var marker_d35ed06033f73874cc11abc202092c12 = L.marker(
+                [37.786911, -122.413429],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_be1f1c969c02b4f2d8553c9b1ffbe586 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d35ed06033f73874cc11abc202092c12.setIcon(icon_be1f1c969c02b4f2d8553c9b1ffbe586);
+        
+    
+        var popup_9075f1f336b0a52d37a05d4b49de7c0e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3f736465f9c5f693e89debae40801656 = $(`<div id="html_3f736465f9c5f693e89debae40801656" style="width: 100.0%; height: 100.0%;">Price: $0.07250000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_9075f1f336b0a52d37a05d4b49de7c0e.setContent(html_3f736465f9c5f693e89debae40801656);
+            
+        
+
+        marker_d35ed06033f73874cc11abc202092c12.bindPopup(popup_9075f1f336b0a52d37a05d4b49de7c0e)
+        ;
+
+        
+    
+    
+            var marker_3dd78974ec389aaff668ce0269fe2067 = L.marker(
+                [37.780979, -122.410141],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_405c418d070ece3465ec8f06901b5c3a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3dd78974ec389aaff668ce0269fe2067.setIcon(icon_405c418d070ece3465ec8f06901b5c3a);
+        
+    
+        var popup_d1bdc8442d84bb8eff9d08875dfdb773 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5905a16aeaec006d44de087281a50dfe = $(`<div id="html_5905a16aeaec006d44de087281a50dfe" style="width: 100.0%; height: 100.0%;">Price: $0.07499999999999996<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_d1bdc8442d84bb8eff9d08875dfdb773.setContent(html_5905a16aeaec006d44de087281a50dfe);
+            
+        
+
+        marker_3dd78974ec389aaff668ce0269fe2067.bindPopup(popup_d1bdc8442d84bb8eff9d08875dfdb773)
+        ;
+
+        
+    
+    
+            var marker_bda035c56d5916e3f9f4da48b7e2fa2e = L.marker(
+                [37.796111, -122.403102],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_d0af3da9fafe2f11eb0c7e4e56af98a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_bda035c56d5916e3f9f4da48b7e2fa2e.setIcon(icon_d0af3da9fafe2f11eb0c7e4e56af98a4);
+        
+    
+        var popup_16570b5a4796ecf4a8d4144544b71682 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b6a18494e51693d1818f98f19ffc996e = $(`<div id="html_b6a18494e51693d1818f98f19ffc996e" style="width: 100.0%; height: 100.0%;">Price: $0.2250000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_16570b5a4796ecf4a8d4144544b71682.setContent(html_b6a18494e51693d1818f98f19ffc996e);
+            
+        
+
+        marker_bda035c56d5916e3f9f4da48b7e2fa2e.bindPopup(popup_16570b5a4796ecf4a8d4144544b71682)
+        ;
+
+        
+    
+    
+            var marker_7cb1f5700a07ea19e9a4e8318c84c8de = L.marker(
+                [37.78524, -122.41512],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_87e9e8f4215105968230a7493e1d2944 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7cb1f5700a07ea19e9a4e8318c84c8de.setIcon(icon_87e9e8f4215105968230a7493e1d2944);
+        
+    
+        var popup_82b02f11775eb6537d2e3ade080f4494 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_33ed2bbd1ecd726447eeb3f72f827256 = $(`<div id="html_33ed2bbd1ecd726447eeb3f72f827256" style="width: 100.0%; height: 100.0%;">Price: $0.050000000000000044<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_82b02f11775eb6537d2e3ade080f4494.setContent(html_33ed2bbd1ecd726447eeb3f72f827256);
+            
+        
+
+        marker_7cb1f5700a07ea19e9a4e8318c84c8de.bindPopup(popup_82b02f11775eb6537d2e3ade080f4494)
+        ;
+
+        
+    
+    
+            var marker_5720c02341a0031da102a3c650498438 = L.marker(
+                [37.788428, -122.415698],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_3207c473ad26e61c24796e4a208d50fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5720c02341a0031da102a3c650498438.setIcon(icon_3207c473ad26e61c24796e4a208d50fe);
+        
+    
+        var popup_2e9732f0fe901f389dd3699a05ae9457 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_46abb1126bc74b13725e637501334047 = $(`<div id="html_46abb1126bc74b13725e637501334047" style="width: 100.0%; height: 100.0%;">Price: $0.0625<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_2e9732f0fe901f389dd3699a05ae9457.setContent(html_46abb1126bc74b13725e637501334047);
+            
+        
+
+        marker_5720c02341a0031da102a3c650498438.bindPopup(popup_2e9732f0fe901f389dd3699a05ae9457)
+        ;
+
+        
+    
+    
+            var marker_26fb79a00b8d1cfc5a274cf25585a269 = L.marker(
+                [37.793995, -122.407066],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_d5dae8345407edc1311945986f5c513e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_26fb79a00b8d1cfc5a274cf25585a269.setIcon(icon_d5dae8345407edc1311945986f5c513e);
+        
+    
+        var popup_c34064258ecef5e1d606ab56a60d1515 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0d3f85227fd77e6a0d480f3ec2d3c902 = $(`<div id="html_0d3f85227fd77e6a0d480f3ec2d3c902" style="width: 100.0%; height: 100.0%;">Price: $0.19999999999999996<br>Bedrooms: 2.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_c34064258ecef5e1d606ab56a60d1515.setContent(html_0d3f85227fd77e6a0d480f3ec2d3c902);
+            
+        
+
+        marker_26fb79a00b8d1cfc5a274cf25585a269.bindPopup(popup_c34064258ecef5e1d606ab56a60d1515)
+        ;
+
+        
+    
+    
+            var marker_e6763fce41b98186c150a100d94736e6 = L.marker(
+                [37.788428, -122.415698],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_c95ba9afafdc2df981caf618de1a3b64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e6763fce41b98186c150a100d94736e6.setIcon(icon_c95ba9afafdc2df981caf618de1a3b64);
+        
+    
+        var popup_43c432fcfe742e0b2538419ee9f7c7b6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_95814f076a0c64172a695a0f7f54f62a = $(`<div id="html_95814f076a0c64172a695a0f7f54f62a" style="width: 100.0%; height: 100.0%;">Price: $0.07250000000000001<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_43c432fcfe742e0b2538419ee9f7c7b6.setContent(html_95814f076a0c64172a695a0f7f54f62a);
+            
+        
+
+        marker_e6763fce41b98186c150a100d94736e6.bindPopup(popup_43c432fcfe742e0b2538419ee9f7c7b6)
+        ;
+
+        
+    
+    
+            var marker_511d583febb6da928bec35276dc09ebc = L.marker(
+                [37.790569, -122.411232],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_8e21cee2d99ff108d904a54344d8ffb9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_511d583febb6da928bec35276dc09ebc.setIcon(icon_8e21cee2d99ff108d904a54344d8ffb9);
+        
+    
+        var popup_33873b609a5fa138774c9de4512f3052 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_caf4d93eec692c1a854840a0ba700285 = $(`<div id="html_caf4d93eec692c1a854840a0ba700285" style="width: 100.0%; height: 100.0%;">Price: $0.14749999999999996<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_33873b609a5fa138774c9de4512f3052.setContent(html_caf4d93eec692c1a854840a0ba700285);
+            
+        
+
+        marker_511d583febb6da928bec35276dc09ebc.bindPopup(popup_33873b609a5fa138774c9de4512f3052)
+        ;
+
+        
+    
+    
+            var marker_3df035723d6b7189a6937c1275bcf7be = L.marker(
+                [37.785904, -122.416641],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_fb860fe1dda7da89826e08372d63a60a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3df035723d6b7189a6937c1275bcf7be.setIcon(icon_fb860fe1dda7da89826e08372d63a60a);
+        
+    
+        var popup_4203ac5d55bbe9edd79098a2f083173a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_92f9ce6a5f4d2d87e33c3b2efd2c75f9 = $(`<div id="html_92f9ce6a5f4d2d87e33c3b2efd2c75f9" style="width: 100.0%; height: 100.0%;">Price: $0.050000000000000044<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_4203ac5d55bbe9edd79098a2f083173a.setContent(html_92f9ce6a5f4d2d87e33c3b2efd2c75f9);
+            
+        
+
+        marker_3df035723d6b7189a6937c1275bcf7be.bindPopup(popup_4203ac5d55bbe9edd79098a2f083173a)
+        ;
+
+        
+    
+    
+            var marker_58a6f258a6dfcd31c8c80be3e574dc79 = L.marker(
+                [37.780082, -122.404215],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_3006d4804c962ae7872cb5d8307a4413 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_58a6f258a6dfcd31c8c80be3e574dc79.setIcon(icon_3006d4804c962ae7872cb5d8307a4413);
+        
+    
+        var popup_e59403abfe4f0e633b123b1e9639ef18 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a56a7a34b33ece504bc7e5f197f60ea = $(`<div id="html_9a56a7a34b33ece504bc7e5f197f60ea" style="width: 100.0%; height: 100.0%;">Price: $0.15999999999999992<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_e59403abfe4f0e633b123b1e9639ef18.setContent(html_9a56a7a34b33ece504bc7e5f197f60ea);
+            
+        
+
+        marker_58a6f258a6dfcd31c8c80be3e574dc79.bindPopup(popup_e59403abfe4f0e633b123b1e9639ef18)
+        ;
+
+        
+    
+    
+            var marker_cbfa172f57cbc37f642ca62a77cf508e = L.marker(
+                [37.786179, -122.419533],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_c978fdf055c5f1599ee1736485ea98f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cbfa172f57cbc37f642ca62a77cf508e.setIcon(icon_c978fdf055c5f1599ee1736485ea98f1);
+        
+    
+        var popup_a4e2c642587ff6190e35f9803b850c2c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_65c99c37e5ca7bf8bed02a82fe848d43 = $(`<div id="html_65c99c37e5ca7bf8bed02a82fe848d43" style="width: 100.0%; height: 100.0%;">Price: $0.012499999999999956<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_a4e2c642587ff6190e35f9803b850c2c.setContent(html_65c99c37e5ca7bf8bed02a82fe848d43);
+            
+        
+
+        marker_cbfa172f57cbc37f642ca62a77cf508e.bindPopup(popup_a4e2c642587ff6190e35f9803b850c2c)
+        ;
+
+        
+    
+    
+            var marker_16912b74b8aeeaf5e04e8c2ca221a30f = L.marker(
+                [37.77483, -122.41256],
+                {}
+            ).addTo(map_3586a5d1b3a7a38af5971b11f7bf12cb);
+        
+    
+            var icon_2fe86e6e19d0e37db26e381b4ac0a0a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_16912b74b8aeeaf5e04e8c2ca221a30f.setIcon(icon_2fe86e6e19d0e37db26e381b4ac0a0a3);
+        
+    
+        var popup_c426c1caaf453c1db612221235a3c51a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc1ac303c4548104fb8b705a9f4b955f = $(`<div id="html_cc1ac303c4548104fb8b705a9f4b955f" style="width: 100.0%; height: 100.0%;">Price: $0.0<br>Bedrooms: 1.0<br>Bathrooms: 1.0</div>`)[0];
+                popup_c426c1caaf453c1db612221235a3c51a.setContent(html_cc1ac303c4548104fb8b705a9f4b955f);
+            
+        
+
+        marker_16912b74b8aeeaf5e04e8c2ca221a30f.bindPopup(popup_c426c1caaf453c1db612221235a3c51a)
+        ;
+
+        
+    
+</script>
+</html>
