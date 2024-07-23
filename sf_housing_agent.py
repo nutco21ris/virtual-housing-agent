@@ -98,7 +98,8 @@ st.markdown("""
 
 # Data API Functions
 @st.cache_data
-def fetch_sf_rental_listings(limit=500, max_requests=500):
+
+def fetch_rental_data(limit=500, max_requests=500):
     Data_URL = 'https://api.rentcast.io/v1/listings/rental/long-term'
     params = {
         'city': 'San Francisco',
@@ -146,16 +147,20 @@ def fetch_sf_rental_listings(limit=500, max_requests=500):
     return pd.DataFrame(all_listings)
 
 # Google Maps API Functions
-def autocomplete_place(input_text):
+def autocomplete_location(input_text):
     predictions = gmaps_places.places_autocomplete(input_text, types='geocode')
     return predictions
 
-def get_lat_lng_from_place_id(place_id):
+def get_location_coordinates(place_id):
     result = gmaps_geocoding.place(place_id=place_id)
     location = result['result']['geometry']['location']
     return location['lat'], location['lng']
 
-def haversine(lat1, lon1, lat2, lon2):
+
+
+
+# All helper functions
+def calculate_distance(lat1, lon1, lat2, lon2):
     R = 6371
     phi1 = math.radians(lat1)
     phi2 = math.radians(lat2)
@@ -174,7 +179,7 @@ def fetch_reviews(place_id, max_reviews=100):
         reviews.extend(place_details['result']['reviews'][:max_reviews])
     return reviews
 
-def sentiment_score(text):
+def calculate_sentiment_score(text):
     return sia.polarity_scores(text)["compound"]
 
 def search_place(query):
@@ -186,14 +191,13 @@ def search_place(query):
 def analyze_reviews(reviews):
     review_data = {
         "review_text": [review['text'] for review in reviews],
-        "sentiment_score": [sentiment_score(review['text']) for review in reviews]
+        "sentiment_score": [calculate_sentiment_score(review['text']) for review in reviews]
     }
     reviews_df = pd.DataFrame(review_data)
     avg_sentiment_score = reviews_df['sentiment_score'].mean()
     return avg_sentiment_score
 
-# Recommendation System Functions
-def calculate_score(row, criteria, weights):
+def calculate_listing_score(row, criteria, weights):
     score = 0
     score += weights['bedrooms'] * (1 if row['bedrooms'] >= criteria['bedrooms'] else 0)
     score += weights['bathrooms'] * (1 if row['bathrooms'] >= criteria['bathrooms'] else 0)
@@ -201,7 +205,7 @@ def calculate_score(row, criteria, weights):
     score += weights['distance'] * (1 - row['distance'])
     return score
 
-def filter_listings(df, criteria, weights):
+def filter_and_score_listings(df, criteria, weights):
     df['original_price'] = df['price'].copy()
     filtered_df = df[
         (df['bedrooms'] >= criteria['bedrooms']) &
@@ -214,19 +218,19 @@ def filter_listings(df, criteria, weights):
         return filtered_df
 
     try:
-        predictions = autocomplete_place(criteria['location'])
+        predictions = autocomplete_location(criteria['location'])
         if predictions:
             place_id = predictions[0]['place_id']
-            lat, lng = get_lat_lng_from_place_id(place_id)
+            lat, lng = get_location_coordinates(place_id)
 
-            filtered_df['distance'] = filtered_df.apply(lambda row: haversine(lat, lng, row['latitude'], row['longitude']), axis=1)
+            filtered_df['distance'] = filtered_df.apply(lambda row: calculate_distance(lat, lng, row['latitude'], row['longitude']), axis=1)
             filtered_df = filtered_df[filtered_df['distance'] <= criteria['max_distance_km']]
 
         if not filtered_df.empty:
             scaler = MinMaxScaler()
             filtered_df[['price', 'distance']] = scaler.fit_transform(filtered_df[['price', 'distance']])
 
-            filtered_df['score'] = filtered_df.apply(lambda row: calculate_score(row, criteria, weights), axis=1)
+            filtered_df['score'] = filtered_df.apply(lambda row: calculate_listing_score(row, criteria, weights), axis=1)
             filtered_df = filtered_df.sort_values('score', ascending=False)
     except Exception as e:
         st.error(f"An error occurred: {e}")
@@ -264,17 +268,19 @@ def enhanced_filter_listings(filtered_df, sentiment):
 
     return filtered_df.sort_values('enhanced_score', ascending=False)
 
-def run_recommendation_system(criteria, weights):
+
+# Main recommendation functions
+def generate_recommendations(criteria, weights):
     try:
-        st.write("Debug - Entering run_recommendation_system")
+        st.write("Debug - Entering generate_recommendations")
         st.write(f"Debug - Criteria: {criteria}") 
         st.write(f"Debug - Weights: {weights}")
         
         if 'df' not in st.session_state or st.session_state.df.empty:
             st.warning("No rental listings data available. Fetching data...")
-            st.session_state.df = fetch_sf_rental_listings()
+            st.session_state.df = fetch_rental_data()
         
-        filtered_listings = filter_listings(st.session_state.df, criteria, weights)
+        filtered_listings = filter_and_score_listings(st.session_state.df, criteria, weights)
         st.write(f"Debug - Filtered listings count: {len(filtered_listings)}") 
         
         if not filtered_listings.empty:
@@ -289,67 +295,9 @@ def run_recommendation_system(criteria, weights):
         st.write(f"Debug - Error details: {str(e)}")  
         return []
 
-# Function to get chat response
-def get_chat_response(user_prompt):
-    messages = [
-        {
-            "role": "system",
-            "content": "You are a virtual San Francisco housing rental agent. Your role is to assist users in finding the perfect rental property by asking for their requirements, preferences, and priorities. Guide the conversation through several stages: gathering basic requirements, understanding preferences, discussing lifestyle needs. Be friendly, informative, and attentive to the user's needs. Only ask for information that hasn't been provided yet. When you have gathered all necessary information, call the run_recommendation_system function."
-        },
-        {
-            "role": "user",
-            "content": user_prompt
-        }
-    ]
-
-    func_descrip = [{
-        "name": "run_recommendation_system",
-        "description": "Filters and recommends property listings based on user criteria and weights",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "criteria": {
-                    "type": "object",
-                    "description": "Dictionary of filtering criteria for property listings",
-                    "properties": {
-                        "bedrooms": {"type": "number", "description": "Number of bedrooms"},
-                        "bathrooms": {"type": "number", "description": "Number of bathrooms"},
-                        "min_rent": {"type": "number", "description": "Minimum rent price"},
-                        "max_rent": {"type": "number", "description": "Maximum rent price"},
-                        "location": {"type": "string", "description": "Desired location"},
-                        "move_in_date": {"type": "string", "description": "Move-in date (YYYY-MM-DD)"},
-                        "lease_term": {"type": "number", "description": "Lease term in months"},
-                        "max_distance_km": {"type": "number", "description": "Maximum distance from the location in kilometers"}
-                    },
-                    "required": ["bedrooms", "bathrooms", "min_rent", "max_rent", "location", "move_in_date", "lease_term", "max_distance_km"]
-                },
-                "weights": {
-                    "type": "object",
-                    "description": "Dictionary of importance weights for different criteria",
-                    "properties": {
-                        "bedrooms": {"type": "number", "description": "Importance of number of bedrooms"},
-                        "bathrooms": {"type": "number", "description": "Importance of number of bathrooms"},
-                        "price": {"type": "number", "description": "Importance of price"},
-                        "distance": {"type": "number", "description": "Importance of distance from desired location"}
-                    },
-                    "required": ["bedrooms", "bathrooms", "price", "distance"]
-                }
-            },
-            "required": ["criteria", "weights"]
-        }
-    }]
-
-    chat_completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages,
-        functions=func_descrip,
-        function_call="auto"
-    )
-
-    return chat_completion.choices[0].message
 
 # Visualization function
-def visualize_results_on_map(results):
+def create_map_visualization(results):
     map_file = "recommended_listings_map.html"
     
     try:
@@ -392,101 +340,14 @@ def visualize_results_on_map(results):
     
     return os.path.realpath(map_file)
 
-def open_map(map_file):
-    if map_file and os.path.exists(map_file):
-        webbrowser.open('file://' + os.path.realpath(map_file))
-    else:
-        print(f"Unable to open map. File not found: {map_file}")
-
-if 'messages' not in st.session_state:
-    st.session_state.messages = []
-if 'current_step' not in st.session_state:
-    st.session_state.current_step = 0
-if 'user_info' not in st.session_state:
-    st.session_state.user_info = {}
-if 'df' not in st.session_state:
-    st.session_state.df = fetch_sf_rental_listings()
 
 
-st.title("🏠 San Francisco Virtual Housing Agent")
-
-
-chat_container = st.container()
-
-
-col1, col2 = st.columns([3, 1])
-with col1:
-    user_input = st.text_input("You:", key="user_input")
-with col2:
-    submit_button = st.button("Send")
-
-if submit_button and user_input:
-    st.session_state.messages.append(("user", user_input))
-    
-    with st.spinner("Thinking..."):
-        bot_response = get_chat_response(user_input)
-    
-    st.write("Debug - Bot response:", bot_response) 
-
-    if 'function_call' in bot_response:
-        function_call = bot_response['function_call']
-        st.write("Debug - Function call:", function_call) 
-        if function_call['name'] == "run_recommendation_system":
-            try:
-                function_args = json.loads(function_call['arguments'])
-                criteria = function_args['criteria']
-                weights = function_args['weights']
-                
-                st.write("Debug - Criteria:", criteria)
-                st.write("Debug - Weights:", weights)
-                
-                with st.spinner("Searching for properties..."):
-                    recommended_listings = run_recommendation_system(criteria, weights)
-                
-                st.write(f"Debug - Recommended listings: {len(recommended_listings)}")
-                
-                if recommended_listings:
-                    bot_response_text = f"I've found {len(recommended_listings)} properties based on your criteria. Here are the top 5:"
-                    for i, listing in enumerate(recommended_listings[:5], 1):
-                        bot_response_text += f"\n\n{i}. {listing['formattedAddress']}\nPrice: ${listing['price']:.2f}\nBedrooms: {listing['bedrooms']}\nBathrooms: {listing['bathrooms']}\nScore: {listing['enhanced_score']:.2f}"
-
-                    with st.spinner("Creating map..."):
-                        map_file = visualize_results_on_map(recommended_listings)
-                    st.markdown(f"[View Map of Recommendations]({map_file})")
-                else:
-                    bot_response_text = "I'm sorry, but I couldn't find any properties matching your criteria. Could you please adjust your requirements?"
-            except Exception as e:
-                st.error(f"An error occurred while processing recommendations: {e}")
-                st.write(f"Debug - Error details: {str(e)}")
-                bot_response_text = "I apologize, but I encountered an error while trying to find recommendations. Could you please try again or rephrase your request?"
-        else:
-            bot_response_text = "I'm sorry, I'm not sure how to handle that request."
-    else:
-        bot_response_text = bot_response['content']
-    
-    st.session_state.messages.append(("assistant", bot_response_text))
-    
-    st.experimental_rerun()
-
-with chat_container:
-    for role, message in st.session_state.messages:
-        if role == "user":
-            st.markdown(f'<div class="chat-message user-message">{message}</div>', unsafe_allow_html=True)
-        else:
-            st.markdown(f'<div class="chat-message bot-message">{message}</div>', unsafe_allow_html=True)
-
-
-if not st.session_state.messages:
-    welcome_message = "Welcome to the San Francisco Virtual Housing Agent! I'm here to help you find the perfect rental property in San Francisco. Let's start by getting to know your needs and preferences. What brings you to San Francisco?"
-    st.session_state.messages.append(("assistant", welcome_message))
-    st.experimental_rerun()
-
-
-def get_chat_response(user_prompt):
+# Main Function calling OpenAI Chat Completion Model
+def get_rental_agent_response(user_prompt):
     messages = [
         {
             "role": "system",
-            "content": "You are a virtual San Francisco housing rental agent. Your role is to assist users in finding the perfect rental property by asking for their requirements, preferences, and priorities. Guide the conversation through several stages: gathering basic requirements, understanding preferences, discussing lifestyle needs. Be friendly, informative, and attentive to the user's needs. Only ask for information that hasn't been provided yet. When you have gathered all necessary information (bedrooms, bathrooms, min_rent, max_rent, location, move_in_date, lease_term, and max_distance_km), call the run_recommendation_system function with appropriate criteria and weights."
+            "content": "You are a virtual San Francisco housing rental agent. Your role is to assist users in finding the perfect rental property by asking for their requirements, preferences, and priorities. Guide the conversation through several stages: gathering basic requirements, understanding preferences, discussing lifestyle needs. Be friendly, informative, and attentive to the user's needs. Only ask for information that hasn't been provided yet. When you have gathered all necessary information (bedrooms, bathrooms, min_rent, max_rent, location, move_in_date, lease_term, and max_distance_km), call the generate_recommendations function with appropriate criteria and weights."
         }
     ]
     
@@ -495,8 +356,8 @@ def get_chat_response(user_prompt):
     
     messages.append({"role": "user", "content": user_prompt})
 
-    func_descrip = [{
-        "name": "run_recommendation_system",
+    Function_description = [{
+        "name": "generate_recommendations",
         "description": "Filters and recommends property listings based on user criteria and weights",
         "parameters": {
             "type": "object",
@@ -537,28 +398,64 @@ def get_chat_response(user_prompt):
     chat_completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages,
-        functions=func_descrip,
+        functions=Function_description,
         function_call="auto"
     )
 
     return chat_completion.choices[0].message
 
+
+
+#Streamlit App
+
+# Store and Clear chatting history
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+if 'current_step' not in st.session_state:
+    st.session_state.current_step = 0
+if 'user_info' not in st.session_state:
+    st.session_state.user_info = {}
+if 'df' not in st.session_state:
+    st.session_state.df = fetch_rental_data()
+
+
+#Streamlit features
+st.title("🏠 San Francisco Virtual Housing Agent")
+
+
+chat_container = st.container()
+
+
+col1, col2 = st.columns([3, 1])
+with col1:
+    user_input = st.text_input("You:", key="user_input")
+with col2:
+    submit_button = st.button("Send")
+
 if submit_button and user_input:
     st.session_state.messages.append(("user", user_input))
     
     with st.spinner("Thinking..."):
-        bot_response = get_chat_response(user_input)
+        bot_response = get_rental_agent_response(user_input)
     
-    if bot_response.get('function_call'):
+    st.write("Debug - Bot response:", bot_response) 
+
+    if 'function_call' in bot_response:
         function_call = bot_response['function_call']
-        if function_call['name'] == "run_recommendation_system":
+        st.write("Debug - Function call:", function_call) 
+        if function_call['name'] == "generate_recommendations":
             try:
                 function_args = json.loads(function_call['arguments'])
                 criteria = function_args['criteria']
                 weights = function_args['weights']
                 
+                st.write("Debug - Criteria:", criteria)
+                st.write("Debug - Weights:", weights)
+                
                 with st.spinner("Searching for properties..."):
-                    recommended_listings = run_recommendation_system(criteria, weights)
+                    recommended_listings = generate_recommendations(criteria, weights)
+                
+                st.write(f"Debug - Recommended listings: {len(recommended_listings)}")
                 
                 if recommended_listings:
                     bot_response_text = f"I've found {len(recommended_listings)} properties based on your criteria. Here are the top 5:"
@@ -566,7 +463,61 @@ if submit_button and user_input:
                         bot_response_text += f"\n\n{i}. {listing['formattedAddress']}\nPrice: ${listing['price']:.2f}\nBedrooms: {listing['bedrooms']}\nBathrooms: {listing['bathrooms']}\nScore: {listing['enhanced_score']:.2f}"
 
                     with st.spinner("Creating map..."):
-                        map_file = visualize_results_on_map(recommended_listings)
+                        map_file = create_map_visualization(recommended_listings)
+                    st.markdown(f"[View Map of Recommendations]({map_file})")
+                else:
+                    bot_response_text = "I'm sorry, but I couldn't find any properties matching your criteria. Could you please adjust your requirements?"
+            except Exception as e:
+                st.error(f"An error occurred while processing recommendations: {e}")
+                st.write(f"Debug - Error details: {str(e)}")
+                bot_response_text = "I apologize, but I encountered an error while trying to find recommendations. Could you please try again or rephrase your request?"
+        else:
+            bot_response_text = "I'm sorry, I'm not sure how to handle that request."
+    else:
+        bot_response_text = bot_response['content']
+    
+    st.session_state.messages.append(("assistant", bot_response_text))
+    
+    st.experimental_rerun()
+
+with chat_container:
+    for role, message in st.session_state.messages:
+        if role == "user":
+            st.markdown(f'<div class="chat-message user-message">{message}</div>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'<div class="chat-message bot-message">{message}</div>', unsafe_allow_html=True)
+
+
+if not st.session_state.messages:
+    welcome_message = "Welcome to the San Francisco Virtual Housing Agent! I'm here to help you find the perfect rental property in San Francisco. Let's start by getting to know your needs and preferences. What brings you to San Francisco?"
+    st.session_state.messages.append(("assistant", welcome_message))
+    st.experimental_rerun()
+
+
+if submit_button and user_input:
+    st.session_state.messages.append(("user", user_input))
+    
+    with st.spinner("Thinking..."):
+        bot_response = get_rental_agent_response(user_input)
+    
+    if bot_response.get('function_call'):
+        function_call = bot_response['function_call']
+        if function_call['name'] == "generate_recommendations":
+            try:
+                function_args = json.loads(function_call['arguments'])
+                criteria = function_args['criteria']
+                weights = function_args['weights']
+                
+                with st.spinner("Searching for properties..."):
+                    recommended_listings = generate_recommendations(criteria, weights)
+                
+                if recommended_listings:
+                    bot_response_text = f"I've found {len(recommended_listings)} properties based on your criteria. Here are the top 5:"
+                    for i, listing in enumerate(recommended_listings[:5], 1):
+                        bot_response_text += f"\n\n{i}. {listing['formattedAddress']}\nPrice: ${listing['price']:.2f}\nBedrooms: {listing['bedrooms']}\nBathrooms: {listing['bathrooms']}\nScore: {listing['enhanced_score']:.2f}"
+
+                    with st.spinner("Creating map..."):
+                        map_file = create_map_visualization(recommended_listings)
                     st.markdown(f"[View Map of Recommendations]({map_file})")
                 else:
                     bot_response_text = "I'm sorry, but I couldn't find any properties matching your criteria. Could you please adjust your requirements?"
