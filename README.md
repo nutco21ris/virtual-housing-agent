@@ -42,17 +42,17 @@ To use this application, you will need API keys for various services. Here’s h
 
 ## Installation
 
-'git clone https://github.com/nutco21ris/virtual-housing-agent.git'
+`git clone https://github.com/nutco21ris/virtual-housing-agent.git`
 
-'cd virtual-housing-agent'
+`cd virtual-housing-agent`
 
-'python -m venv venv'
+`python -m venv venv`
 
-'source venv/bin/activate'
-#####  On Windows, use `venv\Scripts\activate`
+`source venv/bin/activate`     
+##### On Windows, use `venv\Scripts\activate`
 
-'pip install -r requirements.txt'
+`pip install -r requirements.txt`
 
-'streamlit run main.py'
+`streamlit run main.py`
 
 
