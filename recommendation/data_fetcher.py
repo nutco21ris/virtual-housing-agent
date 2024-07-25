@@ -4,12 +4,10 @@ import time
 import requests
 import pandas as pd
 from typing import List, Dict, Any
-
-# Load environment variables
-load_dotenv(dotenv_path='/Users/irisyu/Desktop/Project/virtual-housing-agent/.env')
+import streamlit as st
 
 # Access the variables
-DATA_API_KEY = os.getenv('DATA_API_KEY')
+DATA_API_KEY = st.secrets["general"]['DATA_API_KEY']
 
 def fetch_rental_data(limit: int = 500, max_requests: int = 500) -> pd.DataFrame:
     Data_URL = 'https://api.rentcast.io/v1/listings/rental/long-term'

@@ -2,15 +2,14 @@ import googlemaps
 import os
 from dotenv import load_dotenv
 import math
+import streamlit as st
 
 
 
-# Load environment variables
-load_dotenv(dotenv_path='/Users/irisyu/Desktop/Project/virtual-housing-agent/.env')
 
 # Access the variables
-PLACES_API_KEY = os.getenv('PLACES_API_KEY')
-GEOCODING_KEY = os.getenv('GEOCODING_API_KEY')
+PLACES_API_KEY = st.secrets["general"]['PLACES_API_KEY']
+GEOCODING_KEY = st.secrets["general"]['GEOCODING_API_KEY']
 
 
 gmaps_places = googlemaps.Client(key=PLACES_API_KEY)
