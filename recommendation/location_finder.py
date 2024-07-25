@@ -1,6 +1,5 @@
 import googlemaps
 import os
-from dotenv import load_dotenv
 import math
 import streamlit as st
 
