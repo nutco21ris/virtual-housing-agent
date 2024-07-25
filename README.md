@@ -37,25 +37,17 @@ To use this application, you will need API keys for various services. Here’s h
 
 
 ## Installation
+To set up and run the Virtual Housing Agent on your local machine, follow these steps:
 
-### 1. Clone the Repository
 git clone https://github.com/nutco21ris/virtual-housing-agent.git
+
 cd virtual-housing-agent
 
-### 2. Create a Virtual Environment
 python -m venv venv
+
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
-### 3. Install Dependencies
 pip install -r requirements.txt
 
-### 4. Set Up Environment Variables
-DATA_API_KEY = your_rentcast_api_key
-
-PLACES_API_KEY = your_google_places_api_key
-
-GEOCODING_API_KEY = your_google_geocoding_api_key
-
-### 5. Run the Application
 streamlit run main.py
 
