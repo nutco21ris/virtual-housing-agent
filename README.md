@@ -3,6 +3,10 @@
 This project aims to solve the challenge of finding a suitable rental property in San Francisco by leveraging data science and machine learning techniques. The Virtual Housing Agent provides users with personalized recommendations based on their preferences, and displays results on an interactive map.
 
 
+## Access the Application
+
+The application has been deployed to Streamlit, and you can access it directly using the following link:[Virtual Housing Agent San Francisco][https://virtual-housing-agent-sf-nutco21ris.streamlit.app]
+
 
 ## Motivation
 
@@ -17,6 +21,12 @@ I embarked on this project due to the difficulty I faced in finding a suitable h
 - **Sentiment Analysis**: Analyzes social media comments and reviews to gauge neighborhood safety, convenience, and public transport availability.
 - **Interactive Map**: Displays recommended properties on a map for easy visualization.
 - **User-friendly Interface**: Provides a smooth user experience with an intuitive interface.
+
+
+
+# For Developers
+
+If you are interested in trying out the application on your local machine, please follow the instructions below. Note that these instructions are intended for those who want to experiment with the application locally.
 
 
 
