@@ -3,9 +3,11 @@
 This project aims to solve the challenge of finding a suitable rental property in San Francisco by leveraging data science and machine learning techniques. The Virtual Housing Agent provides users with personalized recommendations based on their preferences, and displays results on an interactive map.
 
 
+
 ## Motivation
 
 I embarked on this project due to the difficulty I faced in finding a suitable home in San Francisco. Given the high rental prices and varying neighborhood characteristics, I used my data science skills to create a recommendation system to help streamline the process.
+
 
 
 ## Features
@@ -15,6 +17,7 @@ I embarked on this project due to the difficulty I faced in finding a suitable h
 - **Sentiment Analysis**: Analyzes social media comments and reviews to gauge neighborhood safety, convenience, and public transport availability.
 - **Interactive Map**: Displays recommended properties on a map for easy visualization.
 - **User-friendly Interface**: Provides a smooth user experience with an intuitive interface.
+
 
 
 ## API Keys
@@ -36,18 +39,26 @@ To use this application, you will need API keys for various services. Here’s h
 
 
 
-## Installation
-To set up and run the Virtual Housing Agent on your local machine, follow these steps:
 
+## Installation
+
+# Clone the Repository
 git clone https://github.com/nutco21ris/virtual-housing-agent.git
 
 cd virtual-housing-agent
 
+
+# Create a Virtual Environment
 python -m venv venv
 
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
+
+# Install Dependencies
 pip install -r requirements.txt
 
+
+# Run the Application
 streamlit run main.py
+
 
