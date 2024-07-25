@@ -5,3 +5,4 @@ requests
 nltk
 folium
 streamlit
+streamlit_folium
