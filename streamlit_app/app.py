@@ -42,6 +42,8 @@ initialize_session_state()
 def run_app():
     st.title("🏠 San Francisco Virtual Housing Agent")
 
+    initialize_session_state()
+
     render_chat_interface()
 
     with st.form("user_input_form"):
