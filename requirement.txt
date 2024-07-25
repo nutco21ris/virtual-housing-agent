@@ -1,7 +1,6 @@
 pandas
 scikit-learn
 googlemaps
-python-dotenv
 requests
 nltk
 folium
