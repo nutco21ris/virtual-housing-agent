@@ -51,7 +51,9 @@ pip install -r requirements.txt
 
 ### 4. Set Up Environment Variables
 DATA_API_KEY = your_rentcast_api_key
+
 PLACES_API_KEY = your_google_places_api_key
+
 GEOCODING_API_KEY = your_google_geocoding_api_key
 
 ### 5. Run the Application
