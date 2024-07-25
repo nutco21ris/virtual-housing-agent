@@ -1,3 +1,5 @@
-# here are the api you need to run the script
-GOOGLE_PLACES_API_KEY = 
-GEO_CODING_API_KEY = 
+# Here are the api you need to run the script
+# The Data API Key refers to your RentCast API
+DATA_API_KEY = 
+PLACES_API_KEY = 
+GEOCODING_API_KEY =
