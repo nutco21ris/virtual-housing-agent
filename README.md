@@ -5,7 +5,9 @@ This project aims to solve the challenge of finding a suitable rental property i
 
 ## Access the Application
 
-The application has been deployed to Streamlit, and you can access it directly using the following link:[Virtual Housing Agent San Francisco][https://virtual-housing-agent-sf-nutco21ris.streamlit.app]
+The application has been deployed to Streamlit, and you can access it directly using the following link:
+
+[Virtual Housing Agent San Francisco]（https://virtual-housing-agent-sf-nutco21ris.streamlit.app）
 
 
 ## Motivation
