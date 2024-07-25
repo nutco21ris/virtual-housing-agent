@@ -1,4 +1,4 @@
-# virtual-housing-agent
+# San Francisco Smart HomeFinder
 
 This project aims to solve the challenge of finding a suitable rental property in San Francisco by leveraging data science and machine learning techniques. The Virtual Housing Agent provides users with personalized recommendations based on their preferences, and displays results on an interactive map.
 
